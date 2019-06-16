@@ -12,9 +12,11 @@ import { Result } from '../../models/result';
 export class ImageListComponent implements OnInit {
 
   results$: Observable<Result[]>;
+  loading$: Observable<boolean>;
 
   constructor(private store: Store<fromState.State>) {
     this.results$ = this.store.pipe(select(fromState.getAllResults));
+    this.loading$ = this.store.pipe(select(fromState.getLoaderStatus));
   }
 
   ngOnInit() {

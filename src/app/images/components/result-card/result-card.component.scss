@@ -1,0 +1,14 @@
+mat-card {
+  margin-top: 0.5rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+}
+
+mat-card-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  a {
+    text-decoration: none;
+  }
+}

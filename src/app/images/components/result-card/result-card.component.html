@@ -1,6 +1,7 @@
 <mat-card>
-  <mat-card-title>{{ result.url }}</mat-card-title>
+  <mat-card-title><a [href]="result.url" target="_blank">{{ result.url }}</a></mat-card-title>
+  <mat-card-subtitle>Total Images on this page: {{ result.images.length }}</mat-card-subtitle>
   <mat-card-content>
-
+    <app-image-preview-list [images]="result.images"></app-image-preview-list>
   </mat-card-content>
 </mat-card>

@@ -12,9 +12,10 @@ import { CrawlerService } from './crawler.service';
 import { EffectsModule } from '@ngrx/effects';
 import { FormEffects } from './effects/form.effects';
 import { ResultCardComponent } from './components/result-card/result-card.component';
+import { ImagePreviewListComponent } from './components/image-preview-list/image-preview-list.component';
 
 @NgModule({
-  declarations: [ImageListComponent, FormComponent, ResultCardComponent],
+  declarations: [ImageListComponent, FormComponent, ResultCardComponent, ImagePreviewListComponent],
   imports: [
     CommonModule,
     MaterialModule,
