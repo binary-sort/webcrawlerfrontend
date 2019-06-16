@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/results.reducer';
 import { CrawlerService } from './crawler.service';
+import { EffectsModule } from '@ngrx/effects';
+import { FormEffects } from './effects/form.effects';
 
 @NgModule({
   declarations: [ImageListComponent, FormComponent],
@@ -18,6 +20,7 @@ import { CrawlerService } from './crawler.service';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature('results', reducer),
+    EffectsModule.forFeature([FormEffects]),
     ImagesRoutingModule
   ],
   providers: [CrawlerService]

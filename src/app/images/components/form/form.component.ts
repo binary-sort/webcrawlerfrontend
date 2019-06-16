@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { FormActions } from '../../actions';
 
 @Component({
   selector: 'app-form',
@@ -16,9 +18,16 @@ export class FormComponent implements OnInit {
     depth: new FormControl('', [Validators.required])
   });
 
-  constructor() { }
+  constructor(private store: Store<any>) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
+    this.store.dispatch(new FormActions.LoadImages(this.form.value));
   }
 
 }

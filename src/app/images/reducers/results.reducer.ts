@@ -5,14 +5,16 @@ import { createFeatureSelector } from '@ngrx/store';
 
 export interface State extends EntityState<Result> { }
 
-export const adapter: EntityAdapter<Result> = createEntityAdapter<Result>({});
+export const adapter: EntityAdapter<Result> = createEntityAdapter<Result>({
+  selectId: (result: Result) => result.url
+});
 
 export const initialState: State = adapter.getInitialState({});
 
-export function reducer(state: State = initialState, action: any) {
+export function reducer(state: State = initialState, action: FormActions.LoadImagesSuccess) {
   switch (action.type) {
-    case FormActions.loadImagesSuccess.type:
-      return adapter.addMany(action.data, state);
+    case FormActions.FormActionTypes.LoadImagesSuccess:
+      return adapter.addMany(action.payload, state);
     default:
       return state;
   }

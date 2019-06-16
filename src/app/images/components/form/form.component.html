@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>Enter Url to crawl</mat-card-title>
   <mat-card-content>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input matInput placeholder="Enter URL" formControlName="url" type="url">
         <mat-error *ngIf="form.controls['url'].hasError('required')">URL is required!</mat-error>
