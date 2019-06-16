@@ -3,10 +3,14 @@
   <mat-card-content>
     <form [formGroup]="form">
       <mat-form-field>
-        <input matInput placeholder="Enter URL" formControlName="url">
+        <input matInput placeholder="Enter URL" formControlName="url" type="url">
+        <mat-error *ngIf="form.controls['url'].hasError('required')">URL is required!</mat-error>
+        <mat-error *ngIf="form.controls['url'].hasError('pattern')">Please enter a valid URL! Valid Format:
+          https://example.com</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Enter depth" formControlName="depth">
+        <input matInput placeholder="Enter depth" formControlName="depth" type="number">
+        <mat-error *ngIf="form.controls['depth'].hasError('required')">Depth is required!</mat-error>
       </mat-form-field>
       <button mat-raised-button color="primary">
         Submit
