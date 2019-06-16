@@ -21,3 +21,10 @@ export function reducer(state: State = initialState, action: FormActions.LoadIma
 }
 
 export const getResultState = createFeatureSelector<State>('results');
+
+export const {
+  selectIds: getResultIds,
+  selectEntities: getResultEntities,
+  selectAll: getAllResults,
+  selectTotal: getTotalResults,
+} = adapter.getSelectors(getResultState);

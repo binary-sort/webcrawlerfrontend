@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import * as fromState from './../../reducers/results.reducer';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Result } from '../../models/result';
 
 @Component({
   selector: 'app-image-list',
@@ -7,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImageListComponent implements OnInit {
 
-  constructor() { }
+  results$: Observable<Result[]>;
+
+  constructor(private store: Store<fromState.State>) {
+    this.results$ = this.store.pipe(select(fromState.getAllResults));
+  }
 
   ngOnInit() {
   }

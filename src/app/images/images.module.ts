@@ -11,9 +11,10 @@ import { reducer } from './reducers/results.reducer';
 import { CrawlerService } from './crawler.service';
 import { EffectsModule } from '@ngrx/effects';
 import { FormEffects } from './effects/form.effects';
+import { ResultCardComponent } from './components/result-card/result-card.component';
 
 @NgModule({
-  declarations: [ImageListComponent, FormComponent],
+  declarations: [ImageListComponent, FormComponent, ResultCardComponent],
   imports: [
     CommonModule,
     MaterialModule,

@@ -1,1 +1,2 @@
 <app-form></app-form>
+<app-result-card *ngFor="let result of results$ | async" [result]="result"></app-result-card>
