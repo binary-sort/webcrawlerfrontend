@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { Result } from './models/result';
 import { PostData } from './models/form';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class CrawlerService {
-  private BASE_URL = 'http://localhost:8000';
+  private BASE_URL = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
